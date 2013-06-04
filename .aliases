@@ -19,6 +19,7 @@ alias m="mate ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
+alias gpp="git pull && git push"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -44,10 +45,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 alias sudo='sudo '
 
 # Gzip-enabled `curl`
-alias gurl='curl --compressed'
-
-# Get week number
-alias week='date +%V'
+alias gurl="curl --compressed"
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
@@ -133,3 +131,10 @@ done
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
+
+alias dopen="open http://dl.dropbox.com/u/53005306/adcolony/dev.html"
+alias dploy="rsync --delete --exclude libraries --exclude node_modules --exclude=".*/" --progress -tr . ~/Dropbox/Public/adcolony/"
+alias dlink="echo 'http://dl.dropbox.com/u/53005306/adcolony/index.html' | pbcopy"
+
+alias rgb2hex='printf "#%.2x%.2x%.2x\n" ${1} ${2} ${3}'
+
