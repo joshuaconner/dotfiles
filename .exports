@@ -25,3 +25,6 @@ shopt -s cdable_vars
 
 # python path
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+# enable JRebel for scalatra dev
+export SCALATRA_JREBEL="~/jrebel/jrebel.jar"
