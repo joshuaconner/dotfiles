@@ -48,5 +48,5 @@ export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermS
 complete -d cd pushd rmdir
 
 # Add `~/bin` to the `$PATH`
-export PATH="/usr/local/share/npm/bin:$HOME/bin:$PATH:${JAVA_HOME}/bin:~/adt-bundle-mac-x86_64-20130522/sdk/tools:~/adt-bundle-mac-x86_64-20130522/sdk/platform-tools"
+export PATH="/usr/local/share/npm/bin:$HOME/bin:$PATH:${JAVA_HOME}/bin:~/adt-bundle-mac-x86_64-20130522/sdk/tools:~/adt-bundle-mac-x86_64-20130522/sdk/platform-tools:/usr/local/sbin"
 
