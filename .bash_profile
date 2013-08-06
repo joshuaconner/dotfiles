@@ -1,6 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="/usr/local/share/npm/bin:$HOME/bin:$PATH:~/adt-bundle-mac-x86_64-20130522/sdk/tools:~/adt-bundle-mac-x86_64-20130522/sdk/platform-tools"
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -49,3 +46,7 @@ export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermS
 
 # expand variables with cd, pushd, rmdir
 complete -d cd pushd rmdir
+
+# Add `~/bin` to the `$PATH`
+export PATH="/usr/local/share/npm/bin:$HOME/bin:$PATH:${JAVA_HOME}/bin:~/adt-bundle-mac-x86_64-20130522/sdk/tools:~/adt-bundle-mac-x86_64-20130522/sdk/platform-tools"
+
