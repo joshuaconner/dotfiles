@@ -38,7 +38,7 @@ fi
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 export SCALA_HOME=$(brew --prefix)/Cellar/scala/2.9.2/libexec
-export JAVACMD=drip
+export JAVACMD=$(brew --prefix)/bin/drip
 export DRIP_SHUTDOWN=30
 export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=128M -XX:MaxPermSize=512M"
 
