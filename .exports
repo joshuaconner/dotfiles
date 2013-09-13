@@ -25,3 +25,6 @@ shopt -s cdable_vars
 
 # enable JRebel for scalatra dev
 export SCALATRA_JREBEL="/Users/joshuaconner/jrebel/jrebel.jar"
+
+export NODE_PATH="/usr/local/lib/node_modules"
+
