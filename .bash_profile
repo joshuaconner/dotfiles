@@ -42,8 +42,6 @@ export JAVACMD=$(brew --prefix)/bin/drip
 export DRIP_SHUTDOWN=30
 export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=128M -XX:MaxPermSize=512M"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # expand variables with cd, pushd, rmdir
 complete -d cd pushd rmdir
 
