@@ -138,3 +138,4 @@ alias dlink="echo 'http://dl.dropbox.com/u/53005306/adcolony/index.html' | pbcop
 
 alias rgb2hex='printf "#%.2x%.2x%.2x\n" ${1} ${2} ${3}'
 
+alias awssh="ssh -i $HOME/.ssh/adc2_east.pem"
