@@ -46,7 +46,7 @@ export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermS
 complete -d cd pushd rmdir
 
 # Add `~/bin` to the `$PATH`
-export PATH="/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH:${JAVA_HOME}/bin:~/adt/sdk/tools:~/adt/sdk/platform-tools:/usr/local/sbin:$HOME/aws-cli/eb/macosx/python2.7"
+export PATH="/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH:${JAVA_HOME}/bin:~/adt/sdk/tools:~/adt/sdk/platform-tools:/usr/local/sbin:$HOME/aws-cli/eb/macosx/python2.7:$EC2_HOME/bin"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
