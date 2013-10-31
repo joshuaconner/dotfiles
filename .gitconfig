@@ -61,6 +61,10 @@
 	log = true
 	tool = diffmerge
 
+# auto-correct misspelled git commands if there's only one possible match
+[help]
+  autocorrect = 1
+
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
 	remote = origin
