@@ -31,3 +31,5 @@ export NODE_PATH="/usr/local/lib/node_modules:/usr/local/share/npm/lib/node_modu
 export RBENV_ROOT=/usr/local/var/rbenv
 
 export EC2_HOME=/Users/joshuaconner/ec2-api-tools
+
+export GOPATH="$HOME/go"
