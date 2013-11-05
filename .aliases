@@ -132,10 +132,12 @@ alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
-alias dopen="open http://dl.dropbox.com/u/53005306/adcolony/dev.html"
+alias dopen="open https://dl.dropboxusercontent.com/u/53005306/adcolony/dev.html"
 alias dploy="rsync --delete --exclude libraries --exclude node_modules --exclude=".*/" --progress -tr . ~/Dropbox/Public/adcolony/"
-alias dlink="echo 'http://dl.dropbox.com/u/53005306/adcolony/index.html' | pbcopy"
+alias dlink="echo 'https://dl.dropboxusercontent.com/u/53005306/adcolony/index.html' | pbcopy"
 
 alias rgb2hex='printf "#%.2x%.2x%.2x\n" ${1} ${2} ${3}'
 
+# aw* commands use the adc2_east.pem file by default
 alias awssh="ssh -i $HOME/.ssh/adc2_east.pem"
+alias awscp="scp -i $HOME/.ssh/adc2_east.pem"
