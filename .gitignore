@@ -58,3 +58,6 @@ Session.vim
 # ignore svn folders
 .svn/
 
+# rbenv
+.ruby-version
+
