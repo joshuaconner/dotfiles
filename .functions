@@ -259,3 +259,9 @@ bush() {
 title() {
   echo -e '\033k'${1}'\033\\'
 }
+
+# get a random string of length $1 (default: 64)
+random() {
+  LENGTH=${1:-64}
+  echo `cat /dev/urandom | base64 | tr -dc "[:alnum:]" | head "-c$LENGTH"`
+}
