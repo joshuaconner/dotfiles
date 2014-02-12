@@ -138,6 +138,4 @@ alias dlink="echo 'https://dl.dropboxusercontent.com/u/53005306/adcolony/index.h
 
 alias rgb2hex='printf "#%.2x%.2x%.2x\n" ${1} ${2} ${3}'
 
-# aw* commands use the adc2_east.pem file by default
-alias awssh="ssh -i $HOME/.ssh/adc2_east.pem"
-alias awscp="scp -i $HOME/.ssh/adc2_east.pem"
+alias dirtitle="title `basename $(pwd)`"
