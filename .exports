@@ -36,3 +36,5 @@ export GOPATH="$HOME/go"
 
 # no ansible cows
 export ANSIBLE_NOCOWS=1
+
+export DOCKER_HOST=tcp://
