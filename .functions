@@ -242,17 +242,7 @@ push() {
   else
     git commit -am "${1}"
   fi
-  git pull && git push
-}
-
-# does the same as 'push', above, but with a deploy tag of the current branch
-bush() {
-  if [ -z "$1" ] ; then
-    echo "Must specify a commit message (first argument)!"
-  else
-    git commit -am "\"${1} [deploy:$(git rev-parse --abbrev-ref HEAD)]\""
-    git pull && git push
-  fi
+  gpp
 }
 
 # set the bash window's title
