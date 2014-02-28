@@ -15,7 +15,8 @@ __adc_get_link() {
   elif [[ "$REPO_NAME" = "ua-auto-endcards" ]]; then
     LINK="${UA_AUTO_BASE}${REPO_PATH}"
   else
-    __adc_exit_with_error "Repo doesn't seem to be html5-endcards or ua-auto-endcards..."
+    echo "Repo doesn't seem to be html5-endcards or ua-auto-endcards..." >&2
+    exit 1
   fi
 
   echo "$LINK"
