@@ -37,7 +37,7 @@ qa() {
 prod() {
   FILE="$1"
   if [[ -e "$FILE" ]]; then
-    LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com.s3-website-us-east-1.amazonaws.com/rmec" "http://ua-auto.adtilt.com.s3-website-us-east-1.amazonaws.com")"
+    LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com/rmec" "http://ua-auto.adtilt.com")"
 
     echo "$LINK"
   else
