@@ -24,38 +24,41 @@ __adc_get_link() {
 
 
 qa() {
-  FILE="$1"
-  if [[ -e "$FILE" ]]; then
-    LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com.s3-website-us-east-1.amazonaws.com/rmec" "http://ua-auto.adtilt.com.s3-website-us-east-1.amazonaws.com")"
+  for FILE in "$@"; do
+    if [[ -e "$FILE" ]]; then
+      LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com.s3-website-us-east-1.amazonaws.com/rmec" "http://ua-auto.adtilt.com.s3-website-us-east-1.amazonaws.com")"
 
-    echo "$LINK"
-  else
-    echo "Can't can't the file/directory $FILE."
-    exit 1
-  fi
+      echo "$LINK"
+    else
+      echo "Can't can't the file/directory $FILE."
+      exit 1
+    fi
+  done
 }
 
 prod() {
-  FILE="$1"
-  if [[ -e "$FILE" ]]; then
-    LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com/rmec" "http://ua-auto.adtilt.com")"
+  for FILE in "$@"; do
+    if [[ -e "$FILE" ]]; then
+      LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com/rmec" "http://ua-auto.adtilt.com")"
 
-    echo "$LINK"
-  else
-    echo "Can't can't the file/directory $FILE." >&2
-    exit 1
-  fi
+      echo "$LINK"
+    else
+      echo "Can't can't the file/directory $FILE." >&2
+      exit 1
+    fi
+  done
 }
 
 invalidation() {
-  FILE="$1"
-  if [[ -e "$FILE" ]]; then
-    LINK="$(__adc_get_link "$FILE" "/rmec" "")"
+  for FILE in "$@"; do
+    if [[ -e "$FILE" ]]; then
+      LINK="$(__adc_get_link "$FILE" "/rmec" "")"
 
-    echo "$LINK"
-  else
-    echo "Can't can't the file/directory $FILE." >&2
-    exit 1
-  fi
+      echo "$LINK"
+    else
+      echo "Can't can't the file/directory $FILE." >&2
+      exit 1
+    fi
+  done
 }
 
