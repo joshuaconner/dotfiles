@@ -236,7 +236,7 @@ extract () {
 }
 
 # shortcut to commit, fetch, rebase and push to current master
-push() {
+gp() {
   if [ -z "$1" ] ; then
     git commit -a
   else
