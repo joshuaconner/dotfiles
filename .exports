@@ -38,4 +38,4 @@ export PATH="$PATH:$GOPATH/bin"
 # no ansible cows
 export ANSIBLE_NOCOWS=1
 
-export DOCKER_HOST=tcp://
+export DOCKER_HOST=tcp://localhost:4243
