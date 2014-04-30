@@ -36,12 +36,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export SCALA_HOME=$(brew --prefix)/Cellar/scala/2.9.2/libexec
-export JAVACMD=$(brew --prefix)/bin/drip
-export DRIP_SHUTDOWN=30
-export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=128M -XX:MaxPermSize=512M"
-
 # expand variables with cd, pushd, rmdir
 complete -d cd pushd rmdir
 
