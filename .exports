@@ -32,7 +32,7 @@ export RBENV_ROOT=/usr/local/var/rbenv
 
 export EC2_HOME=/Users/joshuaconner/ec2-api-tools
 
-export GOPATH="$HOME/go"
+export GOPATH="$(brew --prefix)/Cellar/go/1.2.1/libexec/bin"
 export PATH="$PATH:$GOPATH/bin"
 
 # no ansible cows
