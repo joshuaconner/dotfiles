@@ -315,13 +315,18 @@ fullwidth() {
     local res=""
     local fw
     local word
+    # use ideographic space for fullwidth spaces
+    # see: http://stackoverflow.com/a/8333105/604614
     local fullwidth_space="$(unichr 12288)"
+
     for word in $ARGS; do
         fw="$(fullwidth_word $word)"
         res="$res$fullwidth_space$fw"
     done
-    printf "${res:1}" | pbcopy
-    echo "${res:1}"
+
+    res="${res:1}"             # trim leading space, hacky, all well
+    printf "$res" | pbcopy     # put in clipboard, you know that's what you want
+    echo "$res"                # print to the terminal too because ¯\_(ツ)_/¯
 
     # delete our inner functions: http://stackoverflow.com/a/23653825/604614
     unset -f fast_chr
