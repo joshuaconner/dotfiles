@@ -319,7 +319,7 @@ fullwidth() {
         fw="$(fullwidth_word $word)"
         res="$res $fw"
     done
-    echo "${res:1}" | pbcopy
+    printf "${res:1}" | pbcopy
     echo "${res:1}"
 
     # delete our inner functions: http://stackoverflow.com/a/23653825/604614
