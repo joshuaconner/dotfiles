@@ -315,9 +315,10 @@ fullwidth() {
     local res=""
     local fw
     local word
+    local fullwidth_space="$(unichr 12288)"
     for word in $ARGS; do
         fw="$(fullwidth_word $word)"
-        res="$res $fw"
+        res="$res$fullwidth_space$fw"
     done
     printf "${res:1}" | pbcopy
     echo "${res:1}"
