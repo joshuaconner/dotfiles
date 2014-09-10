@@ -3,62 +3,70 @@ __adc_get_link() {
   FILE="$1"
   HTML5_ENDCARDS_BASE="$2"
   UA_AUTO_BASE="$3"
-
+  DEC_ENDCARDS_V2_BASE="$4"
   # get the absolute path to the file
   ABS_PATH=$(echo "$(cd "$(dirname "$FILE")" && pwd)/$(basename "$FILE")")
   REPO_NAME="$(basename $(git rev-parse --show-toplevel))"
   # get text in the absolute path to the file AFTER the base directory name
   REPO_PATH="$(echo "$ABS_PATH" | sed "s#$(git rev-parse --show-toplevel)##")"
-
   if [[ "$REPO_NAME" = "html5-endcards" ]]; then
     LINK="${HTML5_ENDCARDS_BASE}${REPO_PATH}"
+  elif [[ "$REPO_NAME" = "dec-endcards-v2" ]]; then
+    LINK="${DEC_ENDCARDS_V2_BASE}${REPO_PATH}"
   elif [[ "$REPO_NAME" = "ua-auto-endcards" ]]; then
     LINK="${UA_AUTO_BASE}${REPO_PATH}"
   else
     echo "Repo doesn't seem to be html5-endcards or ua-auto-endcards..." >&2
-    exit 1
+    return 1
   fi
 
   echo "$LINK"
+  return 0
 }
 
-
-qa() {
-  for FILE in "$@"; do
-    if [[ -e "$FILE" ]]; then
-      LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com.s3-website-us-east-1.amazonaws.com/rmec" "http://ua-auto.adtilt.com.s3-website-us-east-1.amazonaws.com")"
-
-      echo "$LINK"
-    else
-      echo "Can't can't the file/directory $FILE."
-      exit 1
-    fi
-  done
+qa(){
+  FILE="$1"
+  V1QABASE="http://rm.adtilt.com.s3-website-us-east-1.amazonaws.com/rmec"
+  V2QABASE="http://rm2.adtilt.com.s3-website-us-east-1.amazonaws.com"
+  REPO_NAME="$(basename $(git rev-parse --show-toplevel))"
+  UAGENBASE="http://ua-auto.adtilt.com.s3-website-us-east-1.amazonaws.com"
+  if [[ -e "$FILE" ]]; then
+    LINK="$(__adc_get_link "$FILE" "$V1QABASE" "$UAGENBASE" "$V2QABASE")"
+    echo "$LINK"
+    echo "$LINK" | pbcopy
+  else
+    echo "Can't can't the file/directory $FILE."
+    return 1
+  fi
+  return 0
 }
 
 prod() {
-  for FILE in "$@"; do
-    if [[ -e "$FILE" ]]; then
-      LINK="$(__adc_get_link "$FILE" "http://rm.adtilt.com/rmec" "http://ua-auto.adtilt.com")"
-
-      echo "$LINK"
-    else
-      echo "Can't can't the file/directory $FILE." >&2
-      exit 1
-    fi
-  done
+  FILE="$1"
+  V1QABASE="https://d3nmsqiona8bja.cloudfront.net/rmec"
+  V2QABASE="https://d60y8cj1tje2a.cloudfront.net"
+  UAGENBASE="https://d3ctyus8b5cral.cloudfront.net"
+  REPO_NAME="$(basename $(git rev-parse --show-toplevel))"
+  if [[ -e "$FILE" ]]; then
+    LINK="$(__adc_get_link "$FILE" "$V1QABASE" "$UAGENBASE" "$V2QABASE")"
+    echo "$LINK"
+    echo "$LINK" | pbcopy
+  else
+    echo "Can't can't the file/directory $FILE." >&2
+    return 1
+  fi
+  return 0
 }
 
 invalidation() {
-  for FILE in "$@"; do
-    if [[ -e "$FILE" ]]; then
-      LINK="$(__adc_get_link "$FILE" "/rmec" "")"
-
-      echo "$LINK"
-    else
-      echo "Can't can't the file/directory $FILE." >&2
-      exit 1
-    fi
-  done
+  FILE="$1"
+  if [[ -e "$FILE" ]]; then
+    LINK="$(__adc_get_link "$FILE" "/rmec" "" "")"
+    echo "$LINK"
+    echo "$LINK" | pbcopy
+  else
+    echo "Can't can't the file/directory $FILE." >&2
+    return 1
+  fi
+  return 0
 }
-
