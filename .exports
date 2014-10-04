@@ -48,3 +48,5 @@ export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermS
 export DOCKER_HOST=tcp://192.168.59.103:2375
 
 export VOGELS_AWS_REGION="us-east-1"
+
+export NVM_DIR=~/.nvm

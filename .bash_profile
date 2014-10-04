@@ -44,3 +44,4 @@ export PATH="/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:~/Library/Haskell
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+source $(brew --prefix nvm)/nvm.sh
