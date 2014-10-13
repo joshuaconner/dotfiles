@@ -13,7 +13,10 @@ shopt -s nocaseglob
 shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
-# shopt -s cdspell
+shopt -s cdspell
+
+# Don't try to compelete empty commands, because that's dumb
+shopt -s no_empty_cmd_completion
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
