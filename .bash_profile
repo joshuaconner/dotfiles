@@ -43,9 +43,10 @@ fi
 complete -d cd pushd rmdir
 
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:~/Library/Haskell/bin:/usr/local/bin:$PATH:${JAVA_HOME}/bin:~/adt/sdk/tools:~/adt/sdk/platform-tools:/usr/local/sbin:$HOME/aws-cli/eb/macosx/python2.7:$EC2_HOME/bin"
+export PATH="$HOME/bin:~/Library/Haskell/bin:/usr/local/bin:$PATH:${JAVA_HOME}/bin:~/adt/sdk/tools:~/adt/sdk/platform-tools:/usr/local/sbin:$HOME/aws-cli/eb/macosx/python2.7:$EC2_HOME/bin:$HOME/.jenv/bin"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 source $(brew --prefix nvm)/nvm.sh
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
