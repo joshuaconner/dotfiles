@@ -23,11 +23,6 @@ export cards="/Users/joshuaconner/html5-endcards/$(date "+%Y/%m")/"
 
 shopt -s cdable_vars
 
-# enable JRebel for scalatra dev
-export SCALATRA_JREBEL="/Users/joshuaconner/jrebel/jrebel.jar"
-
-# export NODE_PATH="/usr/local/lib/node_modules:/usr/local/share/npm/lib/node_modules"
-
 export RBENV_ROOT=/usr/local/var/rbenv
 
 export EC2_HOME=/Users/joshuaconner/ec2-api-tools
@@ -40,11 +35,8 @@ export ANSIBLE_NOCOWS=1
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 export SCALA_HOME=$(brew --prefix)/Cellar/scala/2.9.2/libexec
-export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=128M -XX:MaxPermSize=512M"
 
 # export NEBULA_ENV="josh"
 export DOCKER_HOST=tcp://192.168.59.103:2375
-
-export VOGELS_AWS_REGION="us-east-1"
 
 export NVM_DIR=~/.nvm
