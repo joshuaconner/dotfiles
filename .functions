@@ -335,3 +335,15 @@ fullwidth() {
     unset -f fullwidth_word
 }
 
+
+# "i'm feeling lucky" for `cd`
+lucky() {
+    local search_term="$1"
+    local dir="$(ls -l | grep "^d" | awk '{ print $9 }' | grep "$search_term" | head -n 1)"
+    if [ -z "$dir" ]; then
+        echo 'No directories found matching "'$search_term'"!'
+        return 1
+    else
+        cd "$dir"
+    fi
+}
