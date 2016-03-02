@@ -4,6 +4,7 @@ __adc_get_link() {
   HTML5_ENDCARDS_BASE="$2"
   UA_AUTO_BASE="$3"
   DEC_ENDCARDS_V2_BASE="$4"
+  DEC_ENDCARDS_V3_BASE="$5"
   # get the absolute path to the file
   ABS_PATH=$(echo "$(cd "$(dirname "$FILE")" && pwd)/$(basename "$FILE")")
   REPO_NAME="$(basename $(git rev-parse --show-toplevel))"
@@ -15,6 +16,8 @@ __adc_get_link() {
     LINK="${DEC_ENDCARDS_V2_BASE}${REPO_PATH}"
   elif [[ "$REPO_NAME" = "ua-auto-endcards" ]]; then
     LINK="${UA_AUTO_BASE}${REPO_PATH}"
+  elif [[ "$REPO_NAME" = "dec-endcards-2016" ]]; then
+    LINK="${DEC_ENDCARDS_V3_BASE}${REPO_PATH}"
   else
     echo "Repo doesn't seem to be html5-endcards or ua-auto-endcards..." >&2
     return 1
@@ -26,12 +29,13 @@ __adc_get_link() {
 
 qa(){
   FILE="$1"
-  V1QABASE="http://rm.adtilt.com.s3-website-us-east-1.amazonaws.com/rmec"
-  V2QABASE="http://rm2.adtilt.com.s3-website-us-east-1.amazonaws.com"
+  V1QABASE="http://s3.amazonaws.com/rm.adtilt.com/rmec"
+  V2QABASE="http://s3.amazonaws.com/rm2.adtilt.com"
+  UAGENBASE="http://s3.amazonaws.com/ua-auto.adtilt.com"
+  V3QABASE="http://s3.amazonaws.com/rm3.adtilt.com"
   REPO_NAME="$(basename $(git rev-parse --show-toplevel))"
-  UAGENBASE="http://ua-auto.adtilt.com.s3-website-us-east-1.amazonaws.com"
   if [[ -e "$FILE" ]]; then
-    LINK="$(__adc_get_link "$FILE" "$V1QABASE" "$UAGENBASE" "$V2QABASE")"
+    LINK="$(__adc_get_link "$FILE" "$V1QABASE" "$UAGENBASE" "$V2QABASE" "$V3QABASE")"
     echo "$LINK"
     echo "$LINK" | pbcopy
   else
@@ -43,12 +47,13 @@ qa(){
 
 prod() {
   FILE="$1"
-  V1QABASE="https://d3nmsqiona8bja.cloudfront.net/rmec"
-  V2QABASE="https://d60y8cj1tje2a.cloudfront.net"
-  UAGENBASE="https://d3ctyus8b5cral.cloudfront.net"
+  V1QABASE="http://rm.adtilt.com/rmec"
+  V2QABASE="http://rm2.adtilt.com"
+  UAGENBASE="http://ua-auto.adtilt.com"
+  V3QABASE="http://rm3.adtilt.com"
   REPO_NAME="$(basename $(git rev-parse --show-toplevel))"
   if [[ -e "$FILE" ]]; then
-    LINK="$(__adc_get_link "$FILE" "$V1QABASE" "$UAGENBASE" "$V2QABASE")"
+    LINK="$(__adc_get_link "$FILE" "$V1QABASE" "$UAGENBASE" "$V2QABASE" "$V3QABASE")"
     echo "$LINK"
     echo "$LINK" | pbcopy
   else
@@ -61,7 +66,7 @@ prod() {
 invalidation() {
   FILE="$1"
   if [[ -e "$FILE" ]]; then
-    LINK="$(__adc_get_link "$FILE" "/rmec" "" "")"
+    LINK="$(__adc_get_link "$FILE" "/rmec" "" "" "")"
     echo "$LINK"
     echo "$LINK" | pbcopy
   else
