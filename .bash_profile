@@ -2,7 +2,7 @@
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,private,adc}; do
-	[ -r "$file" ] && source "$file"
+    [ -r "$file" ] && source "$file"
 done
 unset file
 
@@ -22,7 +22,7 @@ shopt -s no_empty_cmd_completion
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-	shopt -s "$option" 2> /dev/null
+    shopt -s "$option" 2> /dev/null
 done
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
@@ -48,5 +48,13 @@ export PATH="$HOME/bin:~/Library/Haskell/bin:/usr/local/bin:$PATH:${JAVA_HOME}/b
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-source $(brew --prefix nvm)/nvm.sh
+if [-f "$(brew --prefix nvm)/nvm.sh" ]; then
+    source "$(brew --prefix nvm)/nvm.sh"
+fi
+
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# startup virtualenv-burrito
+if [ -f $HOME/.venvburrito/startup.sh ]; then
+    . $HOME/.venvburrito/startup.sh
+fi
