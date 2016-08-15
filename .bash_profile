@@ -58,3 +58,5 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 if [ -f $HOME/.venvburrito/startup.sh ]; then
     . $HOME/.venvburrito/startup.sh
 fi
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
