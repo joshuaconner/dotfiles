@@ -347,3 +347,17 @@ lucky() {
         cd "$dir"
     fi
 }
+
+
+ports() {
+    test "$1" = "--help" && {
+      cat <<EOF
+Usage: ports [<options>]
+Show processes listening on ports.
+Any <options> are passed to lsof
+EOF
+      return 2
+    }
+
+    lsof -iTCP -sTCP:LISTEN -P "$@"
+}
