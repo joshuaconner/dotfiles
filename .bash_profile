@@ -61,4 +61,3 @@ fi
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 source /Users/joshuaconner/.venvburrito/startup.sh
-if which plenv > /dev/null; then eval export PATH="/Users/joshuaconner/.plenv/shims:${PATH}" export PLENV_SHELL=bash source '/usr/local/Cellar/plenv/2.2.0/libexec/../completions/plenv.bash' plenv() { local command command="$1" if [ "$#" -gt 0 ]; then shift fi case "$command" in rehash|shell) eval "`plenv "sh-$command" "$@"`";; *) command plenv "$command" "$@";; esac }; fi
