@@ -138,3 +138,5 @@ alias dlink="echo 'https://dl.dropboxusercontent.com/u/53005306/adcolony/index.h
 alias rgb2hex='printf "#%.2x%.2x%.2x\n" ${1} ${2} ${3}'
 
 alias dirtitle="title `basename $(pwd)`"
+
+alias elm-format="elm-format-0.18"
