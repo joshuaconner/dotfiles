@@ -52,11 +52,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-
-# startup virtualenv-burrito
-if [ -f $HOME/.venvburrito/startup.sh ]; then
-    . $HOME/.venvburrito/startup.sh
-fi
-
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-source /Users/joshuaconner/.venvburrito/startup.sh
