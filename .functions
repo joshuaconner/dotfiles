@@ -361,3 +361,7 @@ EOF
 
     lsof -iTCP -sTCP:LISTEN -P "$@"
 }
+
+wiredump() {
+    ssh "$1" sudo tcpdump -i eth0 -s0 -w -
+}
