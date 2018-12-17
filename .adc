@@ -79,3 +79,4 @@ invalidation() {
 alias bb='git remote set-url origin "ssh://git@bitbucket.adcolony.net:7999/asp/$(basename `git config --get remote.origin.url`)"'
 alias aspbb='git remote set-url origin "ssh://git@bitbucket.adcolony.net:7999/asp/$(basename `git config --get remote.origin.url`)"'
 alias bdbb='git remote set-url origin "ssh://git@bitbucket.adcolony.net:7999/bigdata/$(basename `git config --get remote.origin.url`)"'
+alias dsbb='git remote set-url origin "ssh://git@bitbucket.adcolony.net:7999/data-science/$(basename `git config --get remote.origin.url`)"'
