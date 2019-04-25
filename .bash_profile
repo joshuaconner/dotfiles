@@ -48,6 +48,8 @@ export PATH="$HOME/bin:~/Library/Haskell/bin:/usr/local/bin:$PATH:${JAVA_HOME}/b
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+[[ -s "/usr/local/etc/bash_completion.d" ]] && source "/usr/local/etc/bash_completion.d/git-completion.bash"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads newer nvm
