@@ -43,17 +43,12 @@ fi
 complete -d cd pushd rmdir
 
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:~/Library/Haskell/bin:/usr/local/bin:$PATH:${JAVA_HOME}/bin:~/adt/sdk/tools:~/adt/sdk/platform-tools:/usr/local/sbin:$HOME/aws-cli/eb/macosx/python2.7:$EC2_HOME/bin:$HOME/.jenv/bin"
+export PATH="$HOME/bin:~/Library/Haskell/bin:/usr/local/bin:$PATH:${JAVA_HOME}/bin:~/adt/sdk/tools:~/adt/sdk/platform-tools:/usr/local/sbin:$HOME/aws-cli/eb/macosx/python2.7:$EC2_HOME/bin:$HOME/.jenv/bin:$HOME/Library/Python/3.7/bin"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 [[ -s "/usr/local/etc/bash_completion.d" ]] && source "/usr/local/etc/bash_completion.d/git-completion.bash"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads newer nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
